@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RPA" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="331c611e-9a05-4f6f-9858-8c0ae81a1a5b">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sicon"/>
+	<style name="TABLE_CONTEUDO" mode="Opaque" backcolor="#FFFFFF" hTextAlign="Center" vTextAlign="Middle">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="TABLE_TITLE" mode="Opaque" backcolor="#BFE1FF" vTextAlign="Middle">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="TABLE_COLUNAS" mode="Opaque" backcolor="#FFFFFF" vTextAlign="Middle" fontSize="9" isBold="true">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="COLAB_TITULOS" hTextAlign="Right" vTextAlign="Middle" fontSize="11" isBold="true"/>
+	<style name="COLAB_CONTEUDO" hTextAlign="Left" vTextAlign="Middle" isBlankWhenNull="true" fontSize="11"/>
+	<style name="ASSINATURAS" hTextAlign="Center" fontSize="7"/>
+	<subDataset name="Calculos" uuid="5d047050-9a48-4660-ba3a-c889991cc668">
+		<parameter name="TABLE_VAL_BRUTO" class="java.lang.String"/>
+		<parameter name="TABLE_DESC_INSS" class="java.lang.String"/>
+		<parameter name="TABLE_DESC_ISS" class="java.lang.String"/>
+		<parameter name="TABLE_DESC_TOTAL" class="java.lang.String"/>
+		<parameter name="TABLE_VAL_LIQUIDO" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+	</subDataset>
+	<parameter name="PAR_LOGO" class="java.awt.image.BufferedImage"/>
+	<parameter name="PAR_NOME_CONCURSO" class="java.lang.String"/>
+	<parameter name="PAR_DATA_CONCURSO" class="java.lang.String"/>
+	<parameter name="PAR_NOME_INSTITUICAO" class="java.lang.String"/>
+	<parameter name="PAR_MUNICIPIO" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[]]>
+	</queryString>
+	<field name="valorLiquido" class="java.lang.Double"/>
+	<field name="extenso" class="java.lang.String"/>
+	<field name="funcao" class="java.lang.String"/>
+	<field name="valorBruto" class="java.lang.Double"/>
+	<field name="descINSS" class="java.lang.Double"/>
+	<field name="descISS" class="java.lang.Double"/>
+	<field name="descTotal" class="java.lang.Double"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="PIS" class="java.lang.String"/>
+	<field name="CPF" class="java.lang.String"/>
+	<field name="RG" class="java.lang.String"/>
+	<field name="orgaoEmissor" class="java.lang.String"/>
+	<variable name="VAR_VALOR_BRUTO" class="java.lang.String">
+		<variableExpression><![CDATA[NumberFormat.getCurrencyInstance(new Locale("pt","BR")).format($F{valorBruto})]]></variableExpression>
+	</variable>
+	<variable name="VAR_DESC_INSS" class="java.lang.String">
+		<variableExpression><![CDATA[NumberFormat.getCurrencyInstance(new Locale("pt","BR")).format($F{descINSS})]]></variableExpression>
+	</variable>
+	<variable name="VAR_DESC_ISS" class="java.lang.String">
+		<variableExpression><![CDATA[NumberFormat.getCurrencyInstance(new Locale("pt","BR")).format($F{descISS})]]></variableExpression>
+	</variable>
+	<variable name="VAR_DESC_TOTAL" class="java.lang.String">
+		<variableExpression><![CDATA[NumberFormat.getCurrencyInstance(new Locale("pt","BR")).format($F{descTotal})]]></variableExpression>
+	</variable>
+	<variable name="VAR_VALOR_LIQUIDO" class="java.lang.String">
+		<variableExpression><![CDATA[NumberFormat.getCurrencyInstance(new Locale("pt","BR")).format($F{valorLiquido})]]></variableExpression>
+	</variable>
+	<variable name="VAR_LOCAL_DATA" class="java.lang.String">
+		<variableExpression><![CDATA[$P{PAR_MUNICIPIO} + "-AM, " + new SimpleDateFormat("dd 'de' MMMM 'de' yyyy",new Locale("pt","BR")).format(new SimpleDateFormat("dd/MM/yyyy").parse($P{PAR_DATA_CONCURSO}))]]></variableExpression>
+	</variable>
+	<variable name="VAR_MAIN_TEXT" class="java.lang.String">
+		<variableExpression><![CDATA["&#09;Recebi da <b>Fundação Universidade do Amazonas</b>, CNPJ <b>04.378.626/0001-97</b>, a importância líquida de <b>" + NumberFormat.getCurrencyInstance(new Locale("pt","BR")).format($F{valorLiquido}) + " (" + $F{extenso} + ")</b>, pela prestação de serviços como <b>" + $F{funcao} + "</b> no <b>" + $P{PAR_NOME_CONCURSO} + "</b>, realizado pela Comissão Permanente de Concursos – COMPEC/UFAM no dia <b>" + $P{PAR_DATA_CONCURSO} + "</b> no <b>" + $P{PAR_NOME_INSTITUICAO} + "</b>. Será efetuado o recolhimento dos impostos discriminados abaixo."]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="792" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="560" height="60" uuid="375e6c0f-3aff-4967-b668-e4fa21556123"/>
+				<imageExpression><![CDATA[$P{PAR_LOGO}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="107" y="70" width="340" height="20" uuid="a3f57c23-ef89-4768-b7e6-f0033add7b31"/>
+				<textElement textAlignment="Center">
+					<font size="13" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Recibo de Pagamento a Autônomo (RPA)]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="469" y="68" width="90" height="20" uuid="62601971-535a-462a-aa05-68b58abeb956"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="469" y="73" width="89" height="11" uuid="47591da5-0c2c-4b3e-8c3d-c1fe5fd06a84"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VIA COMPEC]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="99" width="560" height="90" uuid="6adeae7e-c0f2-488a-938c-541f2ae39a31"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{VAR_MAIN_TEXT}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="0" y="191" width="560" height="45" uuid="7bb1df60-b3ba-4e88-899b-0274d0de5020">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="TABLE_CONTEUDO"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="TABLE_TITLE"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="TABLE_COLUNAS"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Calculos" uuid="073323d6-af13-4fce-b4b0-6bd194e95ff9">
+						<datasetParameter name="TABLE_VAL_BRUTO">
+							<datasetParameterExpression><![CDATA[$V{VAR_VALOR_BRUTO}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="TABLE_DESC_INSS">
+							<datasetParameterExpression><![CDATA[$V{VAR_DESC_INSS}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="TABLE_DESC_ISS">
+							<datasetParameterExpression><![CDATA[$V{VAR_DESC_ISS}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="TABLE_DESC_TOTAL">
+							<datasetParameterExpression><![CDATA[$V{VAR_DESC_TOTAL}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="TABLE_VAL_LIQUIDO">
+							<datasetParameterExpression><![CDATA[$V{VAR_VALOR_LIQUIDO}]]></datasetParameterExpression>
+						</datasetParameter>
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource()]]></dataSourceExpression>
+					</datasetRun>
+					<jr:columnGroup width="560" uuid="e4313ac8-4894-4a8d-87ab-3647064b0bdf">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Columns [5]"/>
+						<jr:tableHeader style="TABLE_CONTEUDO" height="15" rowSpan="1">
+							<staticText>
+								<reportElement style="TABLE_TITLE" x="0" y="0" width="560" height="15" backcolor="#FFFFFF" uuid="f21f48d8-e1df-4f78-8097-ece15ceccf41"/>
+								<textElement textAlignment="Center">
+									<font size="11" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Discriminação de Valores]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:columnGroup width="560" uuid="e69eeb2b-3049-45c6-af34-f6d306b1a426">
+							<property name="com.jaspersoft.studio.components.table.model.column.name" value="Columns [5]"/>
+							<jr:column width="100" uuid="27ab963d-6937-4d51-a8a9-96aa372ec5fc">
+								<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+								<jr:tableFooter style="TABLE_CONTEUDO" height="0" rowSpan="1"/>
+								<jr:columnHeader style="TABLE_TITLE" height="15" rowSpan="1">
+									<staticText>
+										<reportElement style="TABLE_COLUNAS" x="0" y="0" width="100" height="15" uuid="deeb1ada-00d6-4b3b-b89e-036aa0c12add"/>
+										<textElement textAlignment="Center"/>
+										<text><![CDATA[Valor Bruto]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:detailCell style="TABLE_COLUNAS" height="15">
+									<textField>
+										<reportElement style="TABLE_CONTEUDO" x="0" y="0" width="100" height="15" uuid="9e36e08b-7c9b-43e4-8f85-43768a9b8ae9"/>
+										<box>
+											<topPen lineStyle="Solid" lineColor="#000000"/>
+											<leftPen lineStyle="Solid" lineColor="#000000"/>
+											<bottomPen lineStyle="Solid" lineColor="#000000"/>
+											<rightPen lineStyle="Solid" lineColor="#000000"/>
+										</box>
+										<textFieldExpression><![CDATA[$P{TABLE_VAL_BRUTO}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="120" uuid="0d721a5e-bea7-4807-8fd1-f8319c088922">
+								<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+								<jr:tableFooter style="TABLE_CONTEUDO" height="0" rowSpan="1"/>
+								<jr:columnHeader style="TABLE_TITLE" height="15" rowSpan="1">
+									<staticText>
+										<reportElement style="TABLE_COLUNAS" x="0" y="0" width="120" height="15" uuid="5a92dcde-00bb-4b82-9a03-6eb18f225e04"/>
+										<textElement textAlignment="Center"/>
+										<text><![CDATA[Desconto INSS (11%)]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:detailCell style="TABLE_COLUNAS" height="15">
+									<textField>
+										<reportElement style="TABLE_CONTEUDO" x="0" y="0" width="120" height="15" uuid="ee110ab3-edc3-4029-87b4-ad3e2a65c86b"/>
+										<textFieldExpression><![CDATA[$P{TABLE_DESC_INSS}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="100" uuid="13390907-90e3-4e3c-8c3a-9a1bfb2d0e51">
+								<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+								<jr:tableFooter style="TABLE_CONTEUDO" height="0" rowSpan="1"/>
+								<jr:columnHeader style="TABLE_TITLE" height="15" rowSpan="1">
+									<staticText>
+										<reportElement style="TABLE_COLUNAS" x="0" y="0" width="100" height="15" uuid="afdd33e2-b066-461f-b590-628057a8db44"/>
+										<textElement textAlignment="Center"/>
+										<text><![CDATA[Desconto ISS (5%)]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:detailCell style="TABLE_COLUNAS" height="15">
+									<textField>
+										<reportElement style="TABLE_CONTEUDO" x="0" y="0" width="100" height="15" uuid="b383ab44-52ef-499c-8a45-cec524801d69"/>
+										<textFieldExpression><![CDATA[$P{TABLE_DESC_ISS}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="140" uuid="48284b6c-4281-4615-a19c-fd458ed9e7a6">
+								<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
+								<jr:tableFooter style="TABLE_CONTEUDO" height="0" rowSpan="1"/>
+								<jr:columnHeader style="TABLE_TITLE" height="15" rowSpan="1">
+									<staticText>
+										<reportElement style="TABLE_COLUNAS" x="0" y="0" width="140" height="15" uuid="2820e923-d7df-4e99-9fa5-b83851af4d88"/>
+										<textElement textAlignment="Center"/>
+										<text><![CDATA[Total de Descontos (16%)]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:detailCell style="TABLE_COLUNAS" height="15">
+									<textField>
+										<reportElement style="TABLE_CONTEUDO" x="0" y="0" width="140" height="15" uuid="1888f2dd-7da8-41dd-ae10-62757916071b"/>
+										<textFieldExpression><![CDATA[$P{TABLE_DESC_TOTAL}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="100" uuid="58316c9b-cd5c-469b-b9af-1fb606187bfd">
+								<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
+								<jr:tableFooter style="TABLE_CONTEUDO" height="0" rowSpan="1"/>
+								<jr:columnHeader style="TABLE_TITLE" height="15" rowSpan="1">
+									<staticText>
+										<reportElement style="TABLE_COLUNAS" x="0" y="0" width="100" height="15" uuid="82ff9233-acc0-494c-b393-b564b462166e"/>
+										<textElement textAlignment="Center"/>
+										<text><![CDATA[Valor Líquido]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:detailCell style="TABLE_COLUNAS" height="15">
+									<textField>
+										<reportElement style="TABLE_CONTEUDO" x="0" y="0" width="100" height="15" uuid="8fd43679-3667-4eed-9940-0d7dccd7aa36"/>
+										<textFieldExpression><![CDATA[$P{TABLE_VAL_LIQUIDO}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+						</jr:columnGroup>
+					</jr:columnGroup>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement x="142" y="261" width="270" height="15" uuid="2f8b0ba2-2dec-4b6b-b65c-d4e75fdc295c"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Identificação do Prestador de Serviços]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="COLAB_TITULOS" x="3" y="284" width="45" height="15" uuid="a07f4ce1-6532-488b-97cc-e39866785665"/>
+				<text><![CDATA[Nome:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="COLAB_TITULOS" x="3" y="301" width="45" height="15" uuid="831862d4-91c8-444f-abc5-a3e3e31c53e8"/>
+				<text><![CDATA[CPF:]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="COLAB_CONTEUDO" x="52" y="284" width="335" height="15" uuid="c919b369-6d2d-49cc-82a3-5403b7314207"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="COLAB_CONTEUDO" x="52" y="301" width="100" height="15" uuid="06f79f63-b7c5-4503-b48f-42f7c5a19951"/>
+				<textFieldExpression><![CDATA[$F{CPF}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="COLAB_TITULOS" x="189" y="301" width="30" height="15" uuid="aba54248-e8b4-4755-9c01-d045656d516e"/>
+				<text><![CDATA[RG:]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="COLAB_CONTEUDO" x="224" y="301" width="125" height="15" uuid="0e0dec0c-a285-4ff5-864b-78badd134721"/>
+				<textFieldExpression><![CDATA[$F{RG}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="COLAB_TITULOS" x="390" y="284" width="70" height="15" uuid="96dde600-d818-48ab-983a-438967812d3c"/>
+				<text><![CDATA[PIS/PASEP:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="COLAB_TITULOS" x="360" y="301" width="100" height="15" uuid="8752a519-c65d-4028-9036-add7c74258c6"/>
+				<text><![CDATA[Órgão Emissor:]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="COLAB_CONTEUDO" x="464" y="284" width="90" height="15" uuid="740f3d48-82a0-4a7d-b6ea-8900ebf5e955"/>
+				<textFieldExpression><![CDATA[$F{PIS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="COLAB_CONTEUDO" x="464" y="301" width="90" height="15" uuid="d9f905f3-3cb2-455b-942e-2f03b6e3a12e"/>
+				<textFieldExpression><![CDATA[$F{orgaoEmissor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="332" width="218" height="35" uuid="c29786e5-95fa-4359-ad3f-a98ce613cfd9">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{VAR_LOCAL_DATA}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="236" y="345" width="155" height="1" uuid="e3570de1-55b9-42e9-8629-f67d6cdcc0b9"/>
+				<graphicElement>
+					<pen lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="405" y="345" width="155" height="1" uuid="8e0cbd4f-dc9e-4bc7-8814-c58a839572a4"/>
+				<graphicElement>
+					<pen lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="ASSINATURAS" x="236" y="348" width="154" height="10" uuid="10eecdbe-ca7d-471d-92d3-a92d4e2fc844"/>
+				<text><![CDATA[Assinatura do Prestador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ASSINATURAS" x="405" y="348" width="154" height="10" uuid="f56f65de-b698-4204-9e38-e72258cb3dc0"/>
+				<text><![CDATA[Atesto do Representante da COMPEC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ASSINATURAS" x="225" y="358" width="175" height="30" uuid="4fc7bec9-e684-45fa-a2a9-bec90036a394"/>
+				<text><![CDATA[Declaro para os devidos fins que as informações prestadas acima são verdadeiras e ainda que não tenho contrato pela Lei nº 8745/93.]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="4" y="393" width="550" height="1" uuid="3bf15e01-9172-41a3-b06d-76685bdb4994">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="4" y="240" width="476" height="10" uuid="74a9c22c-034e-4baa-b5ee-a97eeace8b52"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[* Todos os descontos são calculados com base no valor bruto deste RPA.]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="256" width="560" height="65" uuid="27fce705-3e93-4bbc-ab13-4c6b7dc9326d"/>
+			</rectangle>
+			<line>
+				<reportElement x="0" y="278" width="560" height="1" uuid="b7a40ab5-6e94-4c5b-8c25-41bda2f4e6b5"/>
+			</line>
+			<image>
+				<reportElement x="1" y="400" width="560" height="60" uuid="ac706036-9163-40d5-9499-e91deae2f1c8"/>
+				<imageExpression><![CDATA[$P{PAR_LOGO}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="108" y="470" width="340" height="20" uuid="22f79055-0359-47b4-9f5d-590c06105e26"/>
+				<textElement textAlignment="Center">
+					<font size="13" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Recibo de Pagamento a Autônomo (RPA)]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="470" y="468" width="90" height="20" uuid="10c15a3a-21f7-4db3-95ff-d3ea756159a7"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="470" y="473" width="89" height="11" uuid="8d1525c6-0695-4fd4-a4b7-f9728b815daf"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VIA PRESTADOR]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="1" y="499" width="560" height="90" uuid="95cdd55e-58a7-4de8-97d2-544dfd8eef3c"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{VAR_MAIN_TEXT}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="1" y="591" width="560" height="45" uuid="7821ab28-d035-411c-bca1-d7be22029d6c">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="TABLE_CONTEUDO"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="TABLE_TITLE"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="TABLE_COLUNAS"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Calculos" uuid="9e607d71-2ee4-433f-9d4a-e6da3c9a28a6">
+						<datasetParameter name="TABLE_VAL_BRUTO">
+							<datasetParameterExpression><![CDATA[$V{VAR_VALOR_BRUTO}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="TABLE_DESC_INSS">
+							<datasetParameterExpression><![CDATA[$V{VAR_DESC_INSS}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="TABLE_DESC_ISS">
+							<datasetParameterExpression><![CDATA[$V{VAR_DESC_ISS}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="TABLE_DESC_TOTAL">
+							<datasetParameterExpression><![CDATA[$V{VAR_DESC_TOTAL}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="TABLE_VAL_LIQUIDO">
+							<datasetParameterExpression><![CDATA[$V{VAR_VALOR_LIQUIDO}]]></datasetParameterExpression>
+						</datasetParameter>
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource()]]></dataSourceExpression>
+					</datasetRun>
+					<jr:columnGroup width="560" uuid="c17f2277-ee19-481f-9170-d775630f2579">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Columns [5]"/>
+						<jr:tableHeader style="TABLE_CONTEUDO" height="15" rowSpan="1">
+							<staticText>
+								<reportElement style="TABLE_TITLE" x="0" y="0" width="560" height="15" backcolor="#FFFFFF" uuid="9b2275a2-6dda-4260-90ab-2fd3a8b2137d"/>
+								<textElement textAlignment="Center">
+									<font size="11" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Discriminação de Valores]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:columnGroup width="560" uuid="164f8edb-3f88-4a4c-8c3b-806e823a662e">
+							<property name="com.jaspersoft.studio.components.table.model.column.name" value="Columns [5]"/>
+							<jr:column width="100" uuid="ffc3f99f-148f-4fdb-84fe-6aee177a331e">
+								<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+								<jr:tableFooter style="TABLE_CONTEUDO" height="0" rowSpan="1"/>
+								<jr:columnHeader style="TABLE_TITLE" height="15" rowSpan="1">
+									<staticText>
+										<reportElement style="TABLE_COLUNAS" x="0" y="0" width="100" height="15" uuid="4bf5c024-65ab-41e5-951b-605e2296f604"/>
+										<textElement textAlignment="Center"/>
+										<text><![CDATA[Valor Bruto]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:detailCell style="TABLE_COLUNAS" height="15">
+									<textField>
+										<reportElement style="TABLE_CONTEUDO" x="0" y="0" width="100" height="15" uuid="53670fe1-1ce6-44a9-a093-4a9fa3e9e300"/>
+										<box>
+											<topPen lineStyle="Solid" lineColor="#000000"/>
+											<leftPen lineStyle="Solid" lineColor="#000000"/>
+											<bottomPen lineStyle="Solid" lineColor="#000000"/>
+											<rightPen lineStyle="Solid" lineColor="#000000"/>
+										</box>
+										<textFieldExpression><![CDATA[$P{TABLE_VAL_BRUTO}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="120" uuid="bd687b1a-3ee0-4035-b49f-d9842377676e">
+								<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+								<jr:tableFooter style="TABLE_CONTEUDO" height="0" rowSpan="1"/>
+								<jr:columnHeader style="TABLE_TITLE" height="15" rowSpan="1">
+									<staticText>
+										<reportElement style="TABLE_COLUNAS" x="0" y="0" width="120" height="15" uuid="51e561a5-40da-409f-a0f6-9763a173ebd6"/>
+										<textElement textAlignment="Center"/>
+										<text><![CDATA[Desconto INSS (11%)]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:detailCell style="TABLE_COLUNAS" height="15">
+									<textField>
+										<reportElement style="TABLE_CONTEUDO" x="0" y="0" width="120" height="15" uuid="c4c9b8ee-60d8-4ac5-b0e4-8a04f38ded6e"/>
+										<textFieldExpression><![CDATA[$P{TABLE_DESC_INSS}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="100" uuid="d09f0771-6434-4b1a-b48d-00d3e6d7a767">
+								<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+								<jr:tableFooter style="TABLE_CONTEUDO" height="0" rowSpan="1"/>
+								<jr:columnHeader style="TABLE_TITLE" height="15" rowSpan="1">
+									<staticText>
+										<reportElement style="TABLE_COLUNAS" x="0" y="0" width="100" height="15" uuid="db7d0975-908e-4dbf-8b9b-faa83d87c796"/>
+										<textElement textAlignment="Center"/>
+										<text><![CDATA[Desconto ISS (5%)]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:detailCell style="TABLE_COLUNAS" height="15">
+									<textField>
+										<reportElement style="TABLE_CONTEUDO" x="0" y="0" width="100" height="15" uuid="ea21aada-d082-43f6-b797-846171bf5532"/>
+										<textFieldExpression><![CDATA[$P{TABLE_DESC_ISS}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="140" uuid="6b6f2ac5-5876-4c3d-9c32-fa1a1c866e88">
+								<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
+								<jr:tableFooter style="TABLE_CONTEUDO" height="0" rowSpan="1"/>
+								<jr:columnHeader style="TABLE_TITLE" height="15" rowSpan="1">
+									<staticText>
+										<reportElement style="TABLE_COLUNAS" x="0" y="0" width="140" height="15" uuid="cd77db7c-832c-42e5-b6d9-879489e03bc9"/>
+										<textElement textAlignment="Center"/>
+										<text><![CDATA[Total de Descontos (16%)]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:detailCell style="TABLE_COLUNAS" height="15">
+									<textField>
+										<reportElement style="TABLE_CONTEUDO" x="0" y="0" width="140" height="15" uuid="038757fe-4740-4e4c-9c31-e0613f1618b0"/>
+										<textFieldExpression><![CDATA[$P{TABLE_DESC_TOTAL}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="100" uuid="cd3dc3d9-91f8-451f-a6ae-ad5c3699f676">
+								<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
+								<jr:tableFooter style="TABLE_CONTEUDO" height="0" rowSpan="1"/>
+								<jr:columnHeader style="TABLE_TITLE" height="15" rowSpan="1">
+									<staticText>
+										<reportElement style="TABLE_COLUNAS" x="0" y="0" width="100" height="15" uuid="289b1237-f88d-4adb-b801-3867962d8c18"/>
+										<textElement textAlignment="Center"/>
+										<text><![CDATA[Valor Líquido]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:detailCell style="TABLE_COLUNAS" height="15">
+									<textField>
+										<reportElement style="TABLE_CONTEUDO" x="0" y="0" width="100" height="15" uuid="89757398-1b01-483a-8ecc-fef2296c7180"/>
+										<textFieldExpression><![CDATA[$P{TABLE_VAL_LIQUIDO}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+						</jr:columnGroup>
+					</jr:columnGroup>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement x="143" y="661" width="270" height="15" uuid="18bc7944-217b-456f-b094-4cb6dab7ee05"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Identificação do Prestador de Serviços]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="COLAB_TITULOS" x="4" y="684" width="45" height="15" uuid="0f1a4b57-b32f-47d8-9241-1fcb7f629f70"/>
+				<text><![CDATA[Nome:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="COLAB_TITULOS" x="4" y="701" width="45" height="15" uuid="e472b2bc-e67b-4147-96b8-e120aff02f24"/>
+				<text><![CDATA[CPF:]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="COLAB_CONTEUDO" x="53" y="684" width="335" height="15" uuid="60fe1304-a08d-48a7-a053-b3a359edcf48"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="COLAB_CONTEUDO" x="53" y="701" width="100" height="15" uuid="2c73ca53-9cf9-4ef7-8e7c-704d84d52d28"/>
+				<textFieldExpression><![CDATA[$F{CPF}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="COLAB_TITULOS" x="190" y="701" width="30" height="15" uuid="ac73b94c-b1de-4e2b-b4b5-8b0ab9f760b0"/>
+				<text><![CDATA[RG:]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="COLAB_CONTEUDO" x="225" y="701" width="125" height="15" uuid="ef3b6957-791e-4b06-99bb-aed5b66ff2e2"/>
+				<textFieldExpression><![CDATA[$F{RG}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="COLAB_TITULOS" x="391" y="684" width="70" height="15" uuid="af552432-231e-4b1c-be54-823acbfb0214"/>
+				<text><![CDATA[PIS/PASEP:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="COLAB_TITULOS" x="361" y="701" width="100" height="15" uuid="54f84014-cf95-460c-b781-9d1419347aff"/>
+				<text><![CDATA[Órgão Emissor:]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="COLAB_CONTEUDO" x="465" y="684" width="90" height="15" uuid="f3b1b2d0-2cb5-4306-b0c2-96225702366c"/>
+				<textFieldExpression><![CDATA[$F{PIS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="COLAB_CONTEUDO" x="465" y="701" width="90" height="15" uuid="21bc471f-6b1b-4f9a-b590-1ec7ad99b7ad"/>
+				<textFieldExpression><![CDATA[$F{orgaoEmissor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="732" width="218" height="35" uuid="045f51a9-e57f-4220-9b44-05d8dc79e5a9">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{VAR_LOCAL_DATA}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="237" y="745" width="155" height="1" uuid="37bfe873-d539-4004-adc9-bbd0e363bdbb"/>
+				<graphicElement>
+					<pen lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="406" y="745" width="155" height="1" uuid="0f9a2419-6c1b-4e82-87de-a65d8709c9e9"/>
+				<graphicElement>
+					<pen lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="ASSINATURAS" x="237" y="748" width="154" height="10" uuid="bdded21b-1826-4da3-891f-f346de96754a"/>
+				<text><![CDATA[Assinatura do Prestador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ASSINATURAS" x="406" y="748" width="154" height="10" uuid="dc7a6b82-3d27-4c01-8264-44f7a6185b23"/>
+				<text><![CDATA[Atesto do Representante da COMPEC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="ASSINATURAS" x="225" y="758" width="175" height="30" uuid="1e4e7bbf-8c0c-4d08-86bd-2298c0db529c"/>
+				<text><![CDATA[Declaro para os devidos fins que as informações prestadas acima são verdadeiras e ainda que não tenho contrato pela Lei nº 8745/93.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="640" width="476" height="10" uuid="5b0e6c52-38de-4a4c-b32e-e6789b1d46f9"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[* Todos os descontos são calculados com base no valor bruto deste RPA.]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="1" y="656" width="560" height="65" uuid="dd883c2b-9082-43ff-af1c-452e516502a5"/>
+			</rectangle>
+			<line>
+				<reportElement x="1" y="678" width="560" height="1" uuid="df6d262d-9bc9-41cc-82ce-e6d37a154735"/>
+			</line>
+			<textField>
+				<reportElement x="459" y="365" width="100" height="16" uuid="19f2a291-11c7-4a3b-8bd2-e9a3e70f3e93"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="459" y="765" width="100" height="16" uuid="26aa1d09-1a38-467f-a3f9-03f92a625389"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

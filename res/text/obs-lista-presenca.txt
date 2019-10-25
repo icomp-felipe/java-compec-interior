@@ -1,0 +1,5 @@
+* Verifique seus dados bancários ao assinar, a conta deve ser estritamente CORRENTE, PESSOAL e ATIVA, não será efetivado pagamento em contas que não se enquadram nestes requisitos;
+* Caso algum dado esteja errado, corrigir na própria lista de presença, logo abaixo dos dados incorretos;
+* NÃO é necessário o dígito da agência, porém o da conta corrente é obrigatório. Zeros à esquerda também são desnecessários;
+* Favor não rasurar o código de barras;
+* Em cada colaborador faltoso, escrever a palavra "FALTOU" no campo reservado à assinatura (preferencialmente de caneta vermelha), e pintar a bolinha "Falta".
