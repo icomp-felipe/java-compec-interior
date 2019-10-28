@@ -23,7 +23,7 @@ public class ColaboradorHelper {
 		String cpf_full = StringUtils.extractNumbers(raw_data);
 		
 		// Adiciona os zeros
-		cpf_full = String.format("%011d",Integer.parseInt(cpf_full));
+		cpf_full = String.format("%011d",Long.parseLong(cpf_full));
 		
 		if (!CPFParser.parse(cpf_full))
 			System.err.println("x CPF inválido na linha " + row.getRowNum());
