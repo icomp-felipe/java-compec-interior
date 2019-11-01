@@ -9,10 +9,14 @@ import com.phill.libs.StringUtils;
 import compec.ufam.proc.controller.Coluna;
 
 public class ColaboradorHelper {
+
+	private static int getRow(Row row) {
+		return row.getRowNum() - 6;
+	}
 	
 	/** Extrai de uma célula o nome do colaborador */
 	protected static String parseNome(Row row) {
-		return parseString(row,Coluna.NOME.ordinal());
+		return StringUtils.fixSpaces(parseString(row,Coluna.NOME.ordinal()));
 	}
 
 	/** Extrai de uma célula o número de CPF do colaborador */
@@ -26,7 +30,7 @@ public class ColaboradorHelper {
 		cpf_full = String.format("%011d",Long.parseLong(cpf_full));
 		
 		if (!CPFParser.parse(cpf_full))
-			System.err.println("x CPF inválido na linha " + row.getRowNum());
+			System.err.println("x CPF inválido na linha " + getRow(row));
 		
 		return cpf_full;
 	}
@@ -39,7 +43,7 @@ public class ColaboradorHelper {
 		String pis_full = StringUtils.extractNumbers(raw_data);
 		
 		if (!PISParser.parse(pis_full))
-			System.err.println("x PIS inválido na linha " + row.getRowNum());
+			System.err.println("x PIS inválido na linha " + getRow(row));
 		
 		return pis_full;
 	}
@@ -60,7 +64,7 @@ public class ColaboradorHelper {
 		String funcao_string = parseString(row,Coluna.FUNCAO.ordinal());
 		
 		if (funcao_string == null) {
-			System.err.println("x Falha ao atribuir função na linha " + row.getRowNum());
+			System.err.println("x Falha ao atribuir função na linha " + getRow(row));
 			return null;
 		}
 		
@@ -68,7 +72,7 @@ public class ColaboradorHelper {
 			if (funcao.getNome().equals(funcao_string))
 				return funcao;
 			
-		System.err.println("x Falha ao atribuir função na linha " + row.getRowNum());
+		System.err.println("x Falha ao atribuir função na linha " + getRow(row));
 		
 		return null;
 	}

@@ -41,7 +41,6 @@ public class Concurso {
 		System.out.println(":: Data: " + getDataConcurso());
 		System.out.println(":: Local de Aplicação: " + getEscola());
 		System.out.println(":: Município de Aplicação: " + getMunicipio());
-		System.out.println("--------------------------------");
 		
 	}
 	

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import compec.ufam.proc.controller.ExcelReader;
 import compec.ufam.proc.model.Colaborador;
 import compec.ufam.proc.model.Concurso;
+import compec.ufam.proc.pdf.ListaPresenca;
 import compec.ufam.proc.pdf.RPA;
 
 public class Processador {
@@ -20,9 +21,10 @@ public class Processador {
 			Concurso concurso = ExcelReader.readConcurso(planilha);	concurso.print();
 			ArrayList<Colaborador> listaColaboradores = ExcelReader.read(planilha);
 			
-			listaColaboradores.get(0).print();
+			System.out.println("--------------------------------");
 			
 			RPA.show(concurso, listaColaboradores);
+			ListaPresenca.show(concurso, listaColaboradores);
 			
 		}
 		catch (Exception e) {

@@ -40,7 +40,7 @@ public class RPA {
 		
 		/** Preparando e exibindo o relatório */
 		JasperViewer jrv = new JasperViewer(prints,false);
-		jrv.setTitle("Lista de Recibos - " + concurso.getEscola());
+		jrv.setTitle("Recibos - " + concurso.getEscola());
 		jrv.setVisible(true);
 		
 	}
