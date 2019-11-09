@@ -18,6 +18,40 @@ public class RPA {
 
 	public static void show(Concurso concurso, ArrayList<Colaborador> listaColaboradores) throws Exception {
 		
+		JasperPrint prints = getJasperPrint(concurso,listaColaboradores);
+		
+		/** Preparando e exibindo o relatório */
+		JasperViewer jrv = new JasperViewer(prints,false);
+		jrv.setTitle("Recibos - " + concurso.getEscola());
+		jrv.setVisible(true);
+		
+	}
+	
+	public static void exportPDF(Concurso concurso, ArrayList<Colaborador> listaColaboradores, File dirSaida) throws IOException, JRException {
+		
+		// Erro caso o arquivo seja nulo
+		if (dirSaida == null)
+			throw new IOException("x Nome do diretório de saída de PDF's de recibos não definido");
+		
+		// Erro caso não seja possível escrever o arquivo PDF
+		if (!dirSaida.canWrite())
+			throw new IOException("x Não foi possível escrever no diretório '" + dirSaida.getName() + "'");
+		
+		String filename = String.format("%s/%s (Recibos).pdf",dirSaida.getAbsolutePath(),concurso.getEscola());
+		File destino = new File(filename);
+		System.out.println(":: Escrevendo arquivo " + filename);
+		
+		// Criando diretórios pais do arquivo
+		destino.getParentFile().mkdirs();
+		
+		// Criando e exportando relatório em PDF
+		JasperPrint prints = getJasperPrint(concurso,listaColaboradores);
+		JasperExportManager.exportReportToPdfFile(prints,destino.getAbsolutePath());
+		
+	}
+	
+	private static JasperPrint getJasperPrint(Concurso concurso, ArrayList<Colaborador> listaColaboradores) throws IOException, JRException  {
+		
 		/** Leitura dos arquivos */
 		File     reportPath = ResourceManager.getResourceAsFile("reports/RPA.jasper");
 		BufferedImage  logo = ImageIO.read(ResourceManager.getResourceAsFile("img/logo.jpg"));
@@ -38,11 +72,7 @@ public class RPA {
 		/** Preenchendo o relatório */
 		JasperPrint  prints = JasperFillManager.fillReport(report, parameters, listaBeans);
 		
-		/** Preparando e exibindo o relatório */
-		JasperViewer jrv = new JasperViewer(prints,false);
-		jrv.setTitle("Recibos - " + concurso.getEscola());
-		jrv.setVisible(true);
-		
+		return prints;
 	}
 	
 }

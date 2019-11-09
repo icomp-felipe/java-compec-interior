@@ -27,22 +27,30 @@ public class ListaPresenca {
 		
 	}
 	
-	public static void exportPDF(Concurso concurso, ArrayList<Colaborador> listaColaboradores) {
+	public static void exportPDF(Concurso concurso, ArrayList<Colaborador> listaColaboradores, File dirSaida) throws IOException, JRException {
 
-		try {
-			
-			/*String path = System.getProperty("user.home") + "/lista_presenca";		new File(path).mkdir();
-			String destFileName = path + "/" + instituicao.getFileResume() + ".pdf";
-			
-			JasperPrint prints = getJasperPrint(concurso,instituicao);
-			JasperExportManager.exportReportToPdfFile(prints, destFileName);*/
-			
-		}
-		catch (Exception e) { e.printStackTrace(); }
+		// Erro caso o arquivo seja nulo
+		if (dirSaida == null)
+			throw new IOException("x Nome do diretório de saída de PDF's de lista de presença não definido");
+		
+		// Erro caso não seja possível escrever o arquivo PDF
+		if (!dirSaida.canWrite())
+			throw new IOException("x Não foi possível escrever no diretório '" + dirSaida.getName() + "'");
+		
+		String filename = String.format("%s/%s (Lista).pdf",dirSaida.getAbsolutePath(),concurso.getEscola());
+		File destino = new File(filename);
+		System.out.println(":: Escrevendo arquivo " + filename);
+		
+		// Criando diretórios pais do arquivo
+		destino.getParentFile().mkdirs();
+		
+		// Criando e exportando relatório em PDF
+		JasperPrint prints = getJasperPrint(concurso,listaColaboradores);
+		JasperExportManager.exportReportToPdfFile(prints,destino.getAbsolutePath());
 		
 	}
 	
-	private static JasperPrint getJasperPrint(Concurso concurso, ArrayList<Colaborador> listaColaboradores) throws Exception {
+	private static JasperPrint getJasperPrint(Concurso concurso, ArrayList<Colaborador> listaColaboradores) throws IOException, JRException  {
 		
 		/** Leitura dos arquivos */
 		File     reportPath = ResourceManager.getResourceAsFile("reports/ListaPresenca.jasper");
