@@ -3,7 +3,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RPA" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="331c611e-9a05-4f6f-9858-8c0ae81a1a5b">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sicon"/>
-	<style name="TABLE_CONTEUDO" mode="Opaque" backcolor="#FFFFFF" hTextAlign="Center" vTextAlign="Middle">
+	<style name="TABLE_CONTEUDO" mode="Opaque" backcolor="#FFFFFF" hTextAlign="Center" vTextAlign="Middle" fontName="DejaVu">
 		<box>
 			<pen lineWidth="0.5" lineColor="#000000"/>
 			<topPen lineWidth="0.5" lineColor="#000000"/>
@@ -12,7 +12,7 @@
 			<rightPen lineWidth="0.5" lineColor="#000000"/>
 		</box>
 	</style>
-	<style name="TABLE_TITLE" mode="Opaque" backcolor="#BFE1FF" vTextAlign="Middle">
+	<style name="TABLE_TITLE" mode="Opaque" backcolor="#BFE1FF" vTextAlign="Middle" fontName="DejaVu">
 		<box>
 			<pen lineWidth="0.5" lineColor="#000000"/>
 			<topPen lineWidth="0.5" lineColor="#000000"/>
@@ -21,7 +21,7 @@
 			<rightPen lineWidth="0.5" lineColor="#000000"/>
 		</box>
 	</style>
-	<style name="TABLE_COLUNAS" mode="Opaque" backcolor="#FFFFFF" vTextAlign="Middle" fontSize="9" isBold="true">
+	<style name="TABLE_COLUNAS" mode="Opaque" backcolor="#FFFFFF" vTextAlign="Middle" fontName="DejaVu" fontSize="9" isBold="true">
 		<box>
 			<pen lineWidth="0.5" lineColor="#000000"/>
 			<topPen lineWidth="0.5" lineColor="#000000"/>
@@ -96,7 +96,7 @@
 			<staticText>
 				<reportElement x="107" y="70" width="340" height="20" uuid="a3f57c23-ef89-4768-b7e6-f0033add7b31"/>
 				<textElement textAlignment="Center">
-					<font size="13" isBold="true" isUnderline="true"/>
+					<font fontName="DejaVu" size="13" isBold="true" isUnderline="true"/>
 				</textElement>
 				<text><![CDATA[Recibo de Pagamento a Autônomo (RPA)]]></text>
 			</staticText>
@@ -106,14 +106,14 @@
 			<staticText>
 				<reportElement x="469" y="73" width="89" height="11" uuid="47591da5-0c2c-4b3e-8c3d-c1fe5fd06a84"/>
 				<textElement textAlignment="Center">
-					<font size="9" isBold="true"/>
+					<font fontName="DejaVu" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[VIA COMPEC]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="0" y="99" width="560" height="90" uuid="6adeae7e-c0f2-488a-938c-541f2ae39a31"/>
 				<textElement textAlignment="Justified" markup="html">
-					<font size="12"/>
+					<font fontName="DejaVu" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$V{VAR_MAIN_TEXT}]]></textFieldExpression>
 			</textField>
@@ -254,48 +254,78 @@
 			<staticText>
 				<reportElement x="142" y="261" width="270" height="15" uuid="2f8b0ba2-2dec-4b6b-b65c-d4e75fdc295c"/>
 				<textElement textAlignment="Center">
-					<font size="11" isBold="true"/>
+					<font fontName="DejaVu" size="11" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Identificação do Prestador de Serviços]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="COLAB_TITULOS" x="3" y="284" width="45" height="15" uuid="a07f4ce1-6532-488b-97cc-e39866785665"/>
+				<textElement>
+					<font fontName="DejaVu"/>
+				</textElement>
 				<text><![CDATA[Nome:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="COLAB_TITULOS" x="3" y="301" width="45" height="15" uuid="831862d4-91c8-444f-abc5-a3e3e31c53e8"/>
+				<textElement>
+					<font fontName="DejaVu"/>
+				</textElement>
 				<text><![CDATA[CPF:]]></text>
 			</staticText>
 			<textField>
 				<reportElement style="COLAB_CONTEUDO" x="52" y="284" width="335" height="15" uuid="c919b369-6d2d-49cc-82a3-5403b7314207"/>
+				<textElement>
+					<font fontName="DejaVu"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement style="COLAB_CONTEUDO" x="52" y="301" width="100" height="15" uuid="06f79f63-b7c5-4503-b48f-42f7c5a19951"/>
+				<textElement>
+					<font fontName="DejaVu"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{CPF}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement style="COLAB_TITULOS" x="189" y="301" width="30" height="15" uuid="aba54248-e8b4-4755-9c01-d045656d516e"/>
+				<textElement>
+					<font fontName="DejaVu"/>
+				</textElement>
 				<text><![CDATA[RG:]]></text>
 			</staticText>
 			<textField>
 				<reportElement style="COLAB_CONTEUDO" x="224" y="301" width="125" height="15" uuid="0e0dec0c-a285-4ff5-864b-78badd134721"/>
+				<textElement>
+					<font fontName="DejaVu"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{RG}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement style="COLAB_TITULOS" x="390" y="284" width="70" height="15" uuid="96dde600-d818-48ab-983a-438967812d3c"/>
+				<textElement>
+					<font fontName="DejaVu"/>
+				</textElement>
 				<text><![CDATA[PIS/PASEP:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="COLAB_TITULOS" x="360" y="301" width="100" height="15" uuid="8752a519-c65d-4028-9036-add7c74258c6"/>
+				<textElement>
+					<font fontName="DejaVu"/>
+				</textElement>
 				<text><![CDATA[Órgão Emissor:]]></text>
 			</staticText>
 			<textField>
 				<reportElement style="COLAB_CONTEUDO" x="464" y="284" width="90" height="15" uuid="740f3d48-82a0-4a7d-b6ea-8900ebf5e955"/>
+				<textElement>
+					<font fontName="DejaVu"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{PIS}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement style="COLAB_CONTEUDO" x="464" y="301" width="90" height="15" uuid="d9f905f3-3cb2-455b-942e-2f03b6e3a12e"/>
+				<textElement>
+					<font fontName="DejaVu"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{orgaoEmissor}]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -303,7 +333,7 @@
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="11"/>
+					<font fontName="DejaVu" size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$V{VAR_LOCAL_DATA}]]></textFieldExpression>
 			</textField>
@@ -321,14 +351,23 @@
 			</line>
 			<staticText>
 				<reportElement style="ASSINATURAS" x="236" y="348" width="154" height="10" uuid="10eecdbe-ca7d-471d-92d3-a92d4e2fc844"/>
+				<textElement>
+					<font fontName="DejaVu"/>
+				</textElement>
 				<text><![CDATA[Assinatura do Prestador]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="ASSINATURAS" x="405" y="348" width="154" height="10" uuid="f56f65de-b698-4204-9e38-e72258cb3dc0"/>
+				<textElement>
+					<font fontName="DejaVu"/>
+				</textElement>
 				<text><![CDATA[Atesto do Representante da COMPEC]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="ASSINATURAS" x="225" y="358" width="175" height="30" uuid="4fc7bec9-e684-45fa-a2a9-bec90036a394"/>
+				<textElement>
+					<font fontName="DejaVu"/>
+				</textElement>
 				<text><![CDATA[Declaro para os devidos fins que as informações prestadas acima são verdadeiras e ainda que não tenho contrato pela Lei nº 8745/93.]]></text>
 			</staticText>
 			<line>
@@ -342,7 +381,7 @@
 			<staticText>
 				<reportElement x="4" y="240" width="476" height="10" uuid="74a9c22c-034e-4baa-b5ee-a97eeace8b52"/>
 				<textElement>
-					<font size="8"/>
+					<font fontName="DejaVu" size="8"/>
 				</textElement>
 				<text><![CDATA[* Todos os descontos são calculados com base no valor bruto deste RPA.]]></text>
 			</staticText>
@@ -359,7 +398,7 @@
 			<staticText>
 				<reportElement x="108" y="470" width="340" height="20" uuid="22f79055-0359-47b4-9f5d-590c06105e26"/>
 				<textElement textAlignment="Center">
-					<font size="13" isBold="true" isUnderline="true"/>
+					<font fontName="DejaVu" size="13" isBold="true" isUnderline="true"/>
 				</textElement>
 				<text><![CDATA[Recibo de Pagamento a Autônomo (RPA)]]></text>
 			</staticText>
@@ -369,14 +408,14 @@
 			<staticText>
 				<reportElement x="470" y="473" width="89" height="11" uuid="8d1525c6-0695-4fd4-a4b7-f9728b815daf"/>
 				<textElement textAlignment="Center">
-					<font size="9" isBold="true"/>
+					<font fontName="DejaVu" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[VIA PRESTADOR]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="1" y="499" width="560" height="90" uuid="95cdd55e-58a7-4de8-97d2-544dfd8eef3c"/>
 				<textElement textAlignment="Justified" markup="html">
-					<font size="12"/>
+					<font fontName="DejaVu" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$V{VAR_MAIN_TEXT}]]></textFieldExpression>
 			</textField>
@@ -517,48 +556,78 @@
 			<staticText>
 				<reportElement x="143" y="661" width="270" height="15" uuid="18bc7944-217b-456f-b094-4cb6dab7ee05"/>
 				<textElement textAlignment="Center">
-					<font size="11" isBold="true"/>
+					<font fontName="DejaVu" size="11" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Identificação do Prestador de Serviços]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="COLAB_TITULOS" x="4" y="684" width="45" height="15" uuid="0f1a4b57-b32f-47d8-9241-1fcb7f629f70"/>
+				<textElement>
+					<font fontName="DejaVu"/>
+				</textElement>
 				<text><![CDATA[Nome:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="COLAB_TITULOS" x="4" y="701" width="45" height="15" uuid="e472b2bc-e67b-4147-96b8-e120aff02f24"/>
+				<textElement>
+					<font fontName="DejaVu"/>
+				</textElement>
 				<text><![CDATA[CPF:]]></text>
 			</staticText>
 			<textField>
 				<reportElement style="COLAB_CONTEUDO" x="53" y="684" width="335" height="15" uuid="60fe1304-a08d-48a7-a053-b3a359edcf48"/>
+				<textElement>
+					<font fontName="DejaVu"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement style="COLAB_CONTEUDO" x="53" y="701" width="100" height="15" uuid="2c73ca53-9cf9-4ef7-8e7c-704d84d52d28"/>
+				<textElement>
+					<font fontName="DejaVu"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{CPF}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement style="COLAB_TITULOS" x="190" y="701" width="30" height="15" uuid="ac73b94c-b1de-4e2b-b4b5-8b0ab9f760b0"/>
+				<textElement>
+					<font fontName="DejaVu"/>
+				</textElement>
 				<text><![CDATA[RG:]]></text>
 			</staticText>
 			<textField>
 				<reportElement style="COLAB_CONTEUDO" x="225" y="701" width="125" height="15" uuid="ef3b6957-791e-4b06-99bb-aed5b66ff2e2"/>
+				<textElement>
+					<font fontName="DejaVu"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{RG}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement style="COLAB_TITULOS" x="391" y="684" width="70" height="15" uuid="af552432-231e-4b1c-be54-823acbfb0214"/>
+				<textElement>
+					<font fontName="DejaVu"/>
+				</textElement>
 				<text><![CDATA[PIS/PASEP:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="COLAB_TITULOS" x="361" y="701" width="100" height="15" uuid="54f84014-cf95-460c-b781-9d1419347aff"/>
+				<textElement>
+					<font fontName="DejaVu"/>
+				</textElement>
 				<text><![CDATA[Órgão Emissor:]]></text>
 			</staticText>
 			<textField>
 				<reportElement style="COLAB_CONTEUDO" x="465" y="684" width="90" height="15" uuid="f3b1b2d0-2cb5-4306-b0c2-96225702366c"/>
+				<textElement>
+					<font fontName="DejaVu"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{PIS}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement style="COLAB_CONTEUDO" x="465" y="701" width="90" height="15" uuid="21bc471f-6b1b-4f9a-b590-1ec7ad99b7ad"/>
+				<textElement>
+					<font fontName="DejaVu"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{orgaoEmissor}]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -566,7 +635,7 @@
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="11"/>
+					<font fontName="DejaVu" size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$V{VAR_LOCAL_DATA}]]></textFieldExpression>
 			</textField>
@@ -584,20 +653,29 @@
 			</line>
 			<staticText>
 				<reportElement style="ASSINATURAS" x="237" y="748" width="154" height="10" uuid="bdded21b-1826-4da3-891f-f346de96754a"/>
+				<textElement>
+					<font fontName="DejaVu"/>
+				</textElement>
 				<text><![CDATA[Assinatura do Prestador]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="ASSINATURAS" x="406" y="748" width="154" height="10" uuid="dc7a6b82-3d27-4c01-8264-44f7a6185b23"/>
+				<textElement>
+					<font fontName="DejaVu"/>
+				</textElement>
 				<text><![CDATA[Atesto do Representante da COMPEC]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="ASSINATURAS" x="225" y="758" width="175" height="30" uuid="1e4e7bbf-8c0c-4d08-86bd-2298c0db529c"/>
+				<textElement>
+					<font fontName="DejaVu"/>
+				</textElement>
 				<text><![CDATA[Declaro para os devidos fins que as informações prestadas acima são verdadeiras e ainda que não tenho contrato pela Lei nº 8745/93.]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="5" y="640" width="476" height="10" uuid="5b0e6c52-38de-4a4c-b32e-e6789b1d46f9"/>
 				<textElement>
-					<font size="8"/>
+					<font fontName="DejaVu" size="8"/>
 				</textElement>
 				<text><![CDATA[* Todos os descontos são calculados com base no valor bruto deste RPA.]]></text>
 			</staticText>
@@ -609,12 +687,16 @@
 			</line>
 			<textField>
 				<reportElement x="459" y="365" width="100" height="16" uuid="19f2a291-11c7-4a3b-8bd2-e9a3e70f3e93"/>
-				<textElement textAlignment="Right"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="459" y="765" width="100" height="16" uuid="26aa1d09-1a38-467f-a3f9-03f92a625389"/>
-				<textElement textAlignment="Right"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 		</band>

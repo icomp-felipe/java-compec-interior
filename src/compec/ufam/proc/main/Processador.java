@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 
 import compec.ufam.proc.controller.ExcelReader;
+import compec.ufam.proc.controller.Sorter;
 import compec.ufam.proc.model.Colaborador;
 import compec.ufam.proc.model.Concurso;
 import compec.ufam.proc.pdf.ListaPresenca;
@@ -14,12 +15,17 @@ public class Processador {
 
 	public static void main(String[] args) throws ParseException {
 		
-		File planilha = new File("data.xlsx");
+		if (args.length < 1) {
+			System.err.println("x Informe o nome do arquivo via parâmetro");
+			return;
+		}
+		
+		File planilha = new File(args[0]);
 		
 		try {
 			
 			Concurso concurso = ExcelReader.readConcurso(planilha);	concurso.print();
-			ArrayList<Colaborador> listaColaboradores = ExcelReader.read(planilha);
+			ArrayList<Colaborador> listaColaboradores = Sorter.sort(ExcelReader.read(planilha));
 			
 			System.out.println("--------------------------------");
 			

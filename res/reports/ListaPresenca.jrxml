@@ -244,7 +244,7 @@
 							<textField isStretchWithOverflow="true">
 								<reportElement style="Fields (Tabela)" x="0" y="0" width="90" height="26" uuid="96a55aad-24f0-4f95-a721-723c1bfb84f4"/>
 								<textElement textAlignment="Center"/>
-								<textFieldExpression><![CDATA[$F{funcao}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$F{funcao}.equals("Coordenador Local") ? "Coord. Local" : $F{funcao}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>

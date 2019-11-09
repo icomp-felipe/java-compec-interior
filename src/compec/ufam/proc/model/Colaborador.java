@@ -52,6 +52,10 @@ public class Colaborador {
 		return this.funcao.getNome();
 	}
 	
+	public Funcao getFuncaoEnum() {
+		return this.funcao;
+	}
+	
 	public String getBanco() {
 		return this.banco;
 	}
