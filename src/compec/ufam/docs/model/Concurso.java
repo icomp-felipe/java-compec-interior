@@ -1,4 +1,4 @@
-package compec.ufam.proc.model;
+package compec.ufam.docs.model;
 
 import org.apache.poi.ss.usermodel.Row;
 

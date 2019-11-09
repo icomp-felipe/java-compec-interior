@@ -1,12 +1,12 @@
-package compec.ufam.proc.pdf;
+package compec.ufam.docs.pdf;
 
 import java.io.*;
 import java.util.*;
 import javax.imageio.*;
 import com.phill.libs.*;
 
-import compec.ufam.proc.model.Colaborador;
-import compec.ufam.proc.model.Concurso;
+import compec.ufam.docs.model.Colaborador;
+import compec.ufam.docs.model.Concurso;
 
 import java.awt.image.*;
 import net.sf.jasperreports.view.*;

@@ -1,15 +1,15 @@
-package compec.ufam.proc.main;
+package compec.ufam.docs.main;
 
 import java.io.File;
 import java.text.ParseException;
 import java.util.ArrayList;
 
-import compec.ufam.proc.controller.ExcelReader;
-import compec.ufam.proc.controller.Sorter;
-import compec.ufam.proc.model.Colaborador;
-import compec.ufam.proc.model.Concurso;
-import compec.ufam.proc.pdf.ListaPresenca;
-import compec.ufam.proc.pdf.RPA;
+import compec.ufam.docs.controller.ExcelReader;
+import compec.ufam.docs.controller.Sorter;
+import compec.ufam.docs.model.Colaborador;
+import compec.ufam.docs.model.Concurso;
+import compec.ufam.docs.pdf.ListaPresenca;
+import compec.ufam.docs.pdf.RPA;
 
 public class Processador {
 

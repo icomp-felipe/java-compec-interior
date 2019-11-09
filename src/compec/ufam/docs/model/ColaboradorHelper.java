@@ -1,4 +1,4 @@
-package compec.ufam.proc.model;
+package compec.ufam.docs.model;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
@@ -6,7 +6,8 @@ import org.apache.poi.ss.usermodel.Row;
 import com.phill.libs.CPFParser;
 import com.phill.libs.PISParser;
 import com.phill.libs.StringUtils;
-import compec.ufam.proc.controller.Coluna;
+
+import compec.ufam.docs.controller.Coluna;
 
 public class ColaboradorHelper {
 

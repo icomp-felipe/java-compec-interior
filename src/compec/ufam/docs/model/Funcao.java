@@ -1,4 +1,4 @@
-package compec.ufam.proc.model;
+package compec.ufam.docs.model;
 
 import com.phill.libs.StringUtils;
 
