@@ -1,6 +1,5 @@
 package compec.ufam.docs.model;
 
-import com.phill.libs.StringUtils;
 import org.apache.poi.ss.usermodel.Row;
 
 /** Classe que representa um concurso do sistema. Basicamente é montada com os dados de uma
@@ -31,7 +30,7 @@ public class Concurso {
 	
 	/** Recupera o nome do concurso (já normalizado) */
 	public String getNome() {
-		return StringUtils.firstLetterLowerCase(this.concurso);
+		return this.concurso;
 	}
 	
 	/** Recupera a data de realização do concurso */
@@ -41,7 +40,7 @@ public class Concurso {
 	
 	/** Recupera o nome da escola (já normalizado) */
 	public String getEscola() {
-		return StringUtils.firstLetterLowerCase(this.escola);
+		return this.escola;
 	}
 	
 	/** Recupera o nome do município */
