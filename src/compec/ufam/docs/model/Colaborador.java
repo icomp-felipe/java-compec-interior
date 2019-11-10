@@ -1,12 +1,13 @@
 package compec.ufam.docs.model;
 
-import org.apache.poi.ss.usermodel.Row;
 import com.phill.libs.StringUtils;
+import org.apache.poi.ss.usermodel.Row;
 
 /** Classe que representa um colaborador do sistema. Basicamente é montada com os dados de uma
  *  linha da planilha do Excel e disponível para consulta através dos métodos 'get'. Todos os
  *  dados aqui são formatados e verificados pela classe 'ColaboradorHelper'. Também possui
  *  um método 'print' útil para debug desta classe.
+ *  @see ColaboradorHelper
  *  @author Felipe André - fass@icomp.ufam.edu.br
  *  @version 1.0, 01/11/2019 */
 public class Colaborador {
@@ -30,6 +31,8 @@ public class Colaborador {
 		
 	}
 	
+	/*************** Bloco de Getters Genéricos *******************/
+	
 	/** Recupera o nome do colaborador (já normalizado) */
 	public String getNome() {
 		return StringUtils.firstLetterLowerCase(this.nome);
@@ -52,60 +55,74 @@ public class Colaborador {
 		return StringUtils.parsePIS(this.pis);
 	}
 	
+	/** Recupera o número de RG */
 	public String getRG() {
 		return this.rg;
 	}
 	
+	/** Recupera o órgão emissor de RG */
 	public String getOrgaoEmissor() {
 		return this.orgao_rg;
 	}
 	
+	/** Recupera o nome da função do colaborador no concurso */
 	public String getFuncao() {
 		return this.funcao.getNome();
 	}
 	
+	/** Recupera o enum que representa a função do colaborador no concurso */
 	public Funcao getFuncaoEnum() {
 		return this.funcao;
 	}
 	
+	/** Recupera o nome do banco */
 	public String getBanco() {
 		return this.banco;
 	}
 	
+	/** Recupera o número da agência bancária */
 	public String getAgencia() {
 		return this.agencia;
 	}
 	
+	/** Recupera o número da conta bancária */
 	public String getConta() {
 		return this.cc;
 	}
 	
+	/*************** Bloco de Getters do JasperReports ************/
 	
+	/** Recupera o valor líquido por extenso */
 	public String getExtenso() {
 		return this.funcao.getExtenso();
 	}
 	
+	/** Recupera o valor bruto */
 	public double getValorBruto() {
 		return this.funcao.getValorBruto();
 	}
 	
+	/** Recupera o valor de desconto do INSS */
 	public double getDescINSS() {
 		return this.funcao.getDescINSS();
 	}
 	
+	/** Recupera o valor de desconto de ISS */
 	public double getDescISS() {
 		return this.funcao.getDescISS();
 	}
 	
+	/** Recupera o valor total dos descontos */
 	public double getDescTotal() {
 		return this.funcao.getDescTotal();
 	}
 	
+	/** Recupera o valor líquido */
 	public double getValorLiquido() {
 		return this.funcao.getValorLiquido();
 	}
 	
-	
+	/** Imprime todas as informações desta classe */
 	public void print() {
 		
 		System.out.println("----------| Colaborador |----------");
