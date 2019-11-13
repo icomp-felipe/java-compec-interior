@@ -13,12 +13,16 @@ import com.phill.libs.StringUtils;
 public enum Funcao {
 
 	// Esta ordem é a utilizada na ordenação das listas
-	// ENUM    ("Nome da Função"   , BRUTO,  INSS,   ISS, TOTAL, LIQUID),
-	COORD_LOCAL("Coordenador Local",450.51, 49.56, 22.53, 72.09, 378.42),
-	APLICADOR  ("Aplicador"        ,180.18, 19.82,  9.01, 28.83, 151.35),
-	APOIO      ("Apoio"            ,150.15, 16.52,  7.51, 24.03, 126.12),
-	PORTEIRO   ("Porteiro"         ,138.14, 15.20,  6.91, 22.11, 116.03),
-	MOTORISTA  ("Motorista"        ,363.16, 39.95, 18.16, 58.11, 305.05);
+	// ENUM    ("Nome da Função"      ,  BRUTO,  INSS,   ISS, TOTAL, LIQUID),
+	COORD_LOCAL("Coordenador Local"   , 450.51, 49.56, 22.53, 72.09, 378.42),
+	APLICADOR  ("Aplicador"           , 180.18, 19.82,  9.01, 28.83, 151.35),
+	APOIO      ("Apoio"               , 150.15, 16.52,  7.51, 24.03, 126.12),
+	PORTEIRO   ("Porteiro"            , 138.14, 15.20,  6.91, 22.11, 116.03),
+	INTERPRETE ("Intérprete de Libras", 360.42, 39.65, 18.02, 57.67, 302.75),
+	TRANSCRITOR("Transcritor"         , 270.32, 29.74, 13.52, 43.26, 227.06),
+	LEDOR      ("Ledor"               , 330.39, 36.34, 16.52, 52.86, 277.53),
+	AUX_ROTA   ("Aux. de Rota"        , 240.24, 26.43, 12.01, 38.44, 201.80),
+	MOTORISTA  ("Motorista"           , 363.16, 39.95, 18.16, 58.11, 305.05);
 	
 	// Atributos do enum
 	private String nome, extenso;
