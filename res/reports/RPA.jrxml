@@ -82,7 +82,7 @@
 		<variableExpression><![CDATA[$P{PAR_MUNICIPIO} + "-AM, " + new SimpleDateFormat("dd 'de' MMMM 'de' yyyy",new Locale("pt","BR")).format(new SimpleDateFormat("dd/MM/yyyy").parse($P{PAR_DATA_CONCURSO}))]]></variableExpression>
 	</variable>
 	<variable name="VAR_MAIN_TEXT" class="java.lang.String">
-		<variableExpression><![CDATA["&#09;Recebi da <b>Fundação Universidade do Amazonas</b>, CNPJ <b>04.378.626/0001-97</b>, a importância líquida de <b>" + NumberFormat.getCurrencyInstance(new Locale("pt","BR")).format($F{valorLiquido}) + " (" + $F{extenso} + ")</b>, pela prestação de serviços como <b>" + $F{funcao} + "</b> no <b>" + $P{PAR_NOME_CONCURSO} + "</b>, realizado pela Comissão Permanente de Concursos – COMPEC/UFAM no dia <b>" + $P{PAR_DATA_CONCURSO} + "</b> no <b>" + $P{PAR_NOME_INSTITUICAO} + "</b>. Será efetuado o recolhimento dos impostos discriminados abaixo."]]></variableExpression>
+		<variableExpression><![CDATA["&#09;Recebi da <b>Fundação Universidade do Amazonas</b>, CNPJ <b>04.378.626/0001-97</b>, a importância líquida de <b>" + NumberFormat.getCurrencyInstance(new Locale("pt","BR")).format($F{valorLiquido}) + " (" + $F{extenso} + ")</b>, pela prestação de serviços como <b>" + $F{funcao} + "</b> no <b>" + $P{PAR_NOME_CONCURSO} + "</b>, realizado pela Comissão Permanente de Concursos – COMPEC/UFAM no dia <b>" + $P{PAR_DATA_CONCURSO} + "</b> no(a) <b>" + $P{PAR_NOME_INSTITUICAO} + "</b>. Será efetuado o recolhimento dos impostos discriminados abaixo."]]></variableExpression>
 	</variable>
 	<background>
 		<band splitType="Stretch"/>

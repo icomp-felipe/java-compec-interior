@@ -113,7 +113,7 @@
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.y" value="px"/>
 				</reportElement>
-				<text><![CDATA[Lista de Presença de Colaborador]]></text>
+				<text><![CDATA[Lista de Presença de Servidor Inativo e Colaborador Externo]]></text>
 			</staticText>
 			<textField>
 				<reportElement style="Identificações" x="0" y="155" width="570" height="15" uuid="c242f3f1-c4f1-4c31-a9dc-cd6d32056bad">
