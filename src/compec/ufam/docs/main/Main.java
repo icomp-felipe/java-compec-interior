@@ -9,6 +9,7 @@ import compec.ufam.docs.controller.ExcelReader;
 import compec.ufam.docs.controller.Sorter;
 import compec.ufam.docs.model.Colaborador;
 import compec.ufam.docs.model.Concurso;
+import compec.ufam.docs.pdf.LC;
 import compec.ufam.docs.pdf.ListaPresenca;
 import compec.ufam.docs.pdf.RPA;
 
@@ -37,6 +38,9 @@ public class Main {
 		Option parseOnly = new Option("p","parse-only",false,"Apenas executa validação de dados no arquivo de entrada");
 		options.addOption(parseOnly);
 		
+		Option lc = new Option("l","lc",false,"Gera uma LC");
+		options.addOption(lc);
+		
 		CommandLineParser parser = new DefaultParser();
 		HelpFormatter  formatter = new HelpFormatter();
 		CommandLine line = parser.parse(options,args);
@@ -55,6 +59,7 @@ public class Main {
 		boolean apenasLP  = line.hasOption("lp");
 		boolean apenasRPA = line.hasOption("rpa");
 		boolean ignoraErr = line.hasOption("f");
+		boolean apenasLC  = line.hasOption("lc");
 		
 		// Recuperando a planilha de entrada
 		File planilha = new File(line.getOptionValue('i'));
@@ -119,7 +124,11 @@ public class Main {
 			
 			File dirSaida = new File(line.getOptionValue('o'));
 			
-			if (apenasRPA)
+			if (apenasLC)
+				try { LC.exportPDF(concurso,listaColaboradores,dirSaida); }
+		    	catch (Exception e) { e.printStackTrace(); }
+			
+			else if (apenasRPA)
 				try { RPA.exportPDF(concurso, listaColaboradores,dirSaida); }
 			    catch (Exception e) { e.printStackTrace(); }
 			
@@ -140,7 +149,11 @@ public class Main {
 		// Imprimir na tela, apenas
 		else {
 			
-			if (apenasRPA)
+			if (apenasLC)
+				try { LC.show(concurso,listaColaboradores); }
+		    	catch (Exception e) { e.printStackTrace(); }
+			
+			else if (apenasRPA)
 				try { RPA.show(concurso, listaColaboradores); }
 			    catch (Exception e) { e.printStackTrace();    }
 			
