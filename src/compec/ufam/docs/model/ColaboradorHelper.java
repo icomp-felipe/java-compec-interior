@@ -1,6 +1,9 @@
 package compec.ufam.docs.model;
 
 import com.phill.libs.*;
+import com.phill.libs.br.CPFParser;
+import com.phill.libs.br.PISParser;
+
 import compec.ufam.docs.controller.*;
 import org.apache.poi.ss.usermodel.*;
 
