@@ -5,6 +5,8 @@ import java.util.*;
 import javax.imageio.*;
 import java.awt.image.*;
 import com.phill.libs.*;
+import com.phill.libs.files.PhillFileUtils;
+
 import compec.ufam.docs.model.*;
 import net.sf.jasperreports.view.*;
 import net.sf.jasperreports.engine.*;

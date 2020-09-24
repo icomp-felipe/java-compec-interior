@@ -39,7 +39,7 @@ public enum Funcao {
 		this.total_desc  = total_desc;
 		this.val_liquido = val_liquido;
 		
-		this.extenso = StringUtils.getExtenso(val_liquido);
+		this.extenso = StringUtils.BR.praReais(val_liquido);
 		
 	}
 	

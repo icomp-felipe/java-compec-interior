@@ -1,6 +1,9 @@
 package compec.ufam.docs.model;
 
 import com.phill.libs.StringUtils;
+import com.phill.libs.br.CPFParser;
+import com.phill.libs.br.PISParser;
+
 import org.apache.poi.ss.usermodel.Row;
 
 /** Classe que representa um colaborador do sistema. Basicamente é montada com os dados de uma
@@ -35,12 +38,12 @@ public class Colaborador {
 	
 	/** Recupera o nome do colaborador (já normalizado) */
 	public String getNome() {
-		return StringUtils.firstLetterLowerCase(this.nome);
+		return StringUtils.BR.normaliza(this.nome);
 	}
 	
 	/** Recupera o número de CPF do colaborador (com máscara de CPF) */
 	public String getCPF() {
-		return StringUtils.parseCPF(this.cpf);
+		return CPFParser.format(this.cpf);
 	}
 	
 	/** Tenta converter o número de CPF, armazenado normalmente como String,
@@ -52,7 +55,7 @@ public class Colaborador {
 	
 	/** Recupera o número de PIS do colaborador (com máscara de PIS) */
 	public String getPIS() {
-		return StringUtils.parsePIS(this.pis);
+		return PISParser.format(this.pis);
 	}
 	
 	/** Recupera o número de RG */

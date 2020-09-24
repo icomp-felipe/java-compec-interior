@@ -15,7 +15,7 @@ public class ColaboradorHelper extends CellDataExtractor {
 
 	/** Extrai de uma célula o nome do colaborador */
 	protected static String parseNome(Row row) {
-		return StringUtils.fixSpaces(parseString(row,Coluna.NOME.ordinal()));
+		return StringUtils.wipeMultipleSpaces(parseString(row,Coluna.NOME.ordinal()));
 	}
 
 	/** Extrai de uma célula o número de CPF do colaborador */
