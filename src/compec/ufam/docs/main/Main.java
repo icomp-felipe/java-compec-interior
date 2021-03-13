@@ -58,7 +58,7 @@ public class Main {
 		
 		boolean apenasLP  = line.hasOption("lp");
 		boolean apenasRPA = line.hasOption("rpa");
-		boolean ignoraErr = line.hasOption("f");
+		//boolean ignoraErr = line.hasOption("f");
 		boolean apenasLC  = line.hasOption("lc");
 		
 		// Recuperando a planilha de entrada
